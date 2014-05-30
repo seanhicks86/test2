@@ -4,11 +4,15 @@ var http = require('http'),
     MongoClient = require('mongodb').MongoClient,
     Server = require('mongodb').Server,
     CollectionDriver = require('./collectionDriver').CollectionDriver;
+    connect = require('connect');
  
 var app = express();
 app.set('port', process.env.PORT || 8080); 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
+
+var connect = connect();
+connect.use(connect.bodyParser());
 //app.use(express.bodyParser()); // <-- add
 
 var mongoHost = 'ec2-54-86-37-19.compute-1.amazonaws.com'; //A
