@@ -4,13 +4,13 @@ var http = require('http'),
     MongoClient = require('mongodb').MongoClient,
     Server = require('mongodb').Server,
     CollectionDriver = require('./collectionDriver').CollectionDriver;
-    connect = require('connect');
+    bodyParser = require('body-parser');
  
 var app = express();
 app.set('port', process.env.PORT || 8080); 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
-app.use(express.bodyParser()); // <-- add
+app.use(bodyParser()); // <-- add
 
 var mongoHost = 'ec2-54-86-37-19.compute-1.amazonaws.com'; //A
 var mongoPort = 27017; 
